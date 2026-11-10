@@ -305,7 +305,7 @@ def flux_in_filter(model_flux, model_lam, filter_data, sky_transmission_path = F
 
     # October 26 2017
 
-    #the units you put in will the units that come out bitch!!!
+    #the units you put in will be the units that come out bitch!!!
     
     ##### filter transmission curve ###################
     filter_trans, filter_lam = filter_data
@@ -313,13 +313,13 @@ def flux_in_filter(model_flux, model_lam, filter_data, sky_transmission_path = F
     lam_min = filter_lam.min() 
     lam_max = filter_lam.max()
 
-    #wavelengths containted in the filter
+    #wavelengths contained in the filter
     model_filter = n.where( ( model_lam <= lam_max) & ( model_lam >= lam_min) )
     model_flux_filter = model_flux[model_filter]
     model_lam_filter =  model_lam[model_filter]
 
-    dlam_model = n.median(n.diff(model_lam)) #median wavelenth spacing in  the model
-    dlam_filter = n.median(n.diff(filter_lam)) #median wavelenth spacing in  the filter
+    dlam_model = n.median(n.diff(model_lam)) #median wavelength spacing in the model
+    dlam_filter = n.median(n.diff(filter_lam)) #median wavelength spacing in the filter
 
     bins_filter = abs(int(dlam_model/dlam_filter))
 
@@ -434,21 +434,21 @@ def counts_in_filter(model_flux, model_lam, filter_data, sky_transmission_path =
     model_dlams = n.diff(model_lam)
     model_dlams = n.append(model_dlams, n.diff(model_lam))
 
-    #the units you put in will the units that come out bitch!
+    #the units you put in will be the units that come out bitch!
     ##### filter transmission curve ###################
     filter_trans, filter_lam = filter_data
     
     lam_min = filter_lam.min() 
     lam_max = filter_lam.max()
 
-    #wavelengths containted in the filter
+    #wavelengths contained in the filter
     model_filter = n.where( ( model_lam <= lam_max) & ( model_lam >= lam_min) )
     model_flux_filter = model_flux[model_filter]
     model_lam_filter =  model_lam[model_filter]
     model_dlams_filter = model_dlams[model_filter]
 
-    dlam_model = n.median(n.diff(model_lam)) #median wavelenth spacing in  the model
-    dlam_filter = n.median(n.diff(filter_lam)) #median wavelenth spacing in  the filter
+    dlam_model = n.median(n.diff(model_lam)) #median wavelength spacing in the model
+    dlam_filter = n.median(n.diff(filter_lam)) #median wavelength spacing in the filter
 
     bins_filter = abs(int(dlam_model/dlam_filter))
 

@@ -82,10 +82,10 @@ def bin_array(array, w, no_elems, dpix, sig_clip = None, extra_array = None):
 def pass_through_transmission(data_flux, data_lam, filter_info, pass_filter = False):
 
     #Pass a spectrum through some kind of transmission curve
-    #could be a filter or some QE cruve
+    #could be a filter or some QE curve
     #the data has to have broader/the same coverage than the filter
     
-    #the units you put in will the units that come out bitch!!!
+    #the units you put in will be the units that come out bitch!!!
 
     ##### filter transmission curve ###################
     filter_trans, filter_lam = filter_info
@@ -101,13 +101,13 @@ def pass_through_transmission(data_flux, data_lam, filter_info, pass_filter = Fa
     #print(lam_min)
     #print(lam_max)
 
-    #wavelengths containted in the filter
+    #wavelengths contained in the filter
     relevant = n.where( (data_lam <= lam_max) & ( data_lam >= lam_min) )
     data_in_filter = data_flux[relevant]
     lam_in_filter =  data_lam[relevant]
 
-    dlam_data = n.median(n.diff(lam_in_filter)) #median wavelenth spacing in  the model
-    dlam_filter = n.median(n.diff(filter_lam)) #median wavelenth spacing in  the filter
+    dlam_data = n.median(n.diff(lam_in_filter)) #median wavelength spacing in the model
+    dlam_filter = n.median(n.diff(filter_lam)) #median wavelength spacing in the filter
 
     bins_filter = int(abs(dlam_data/dlam_filter))
     #print(bins_filter)
